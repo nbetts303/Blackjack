@@ -19,6 +19,9 @@ SPADE = "\u2660"
 SUITS = (CLUB, HEART, DIAMOND, SPADE)
 PIPS = ("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
 
+# Functions
+
+# Creates deck
 def create_deck():
     full_deck = []
     for suit in SUITS:
@@ -27,8 +30,7 @@ def create_deck():
             full_deck.append(entry)
     return full_deck
 
-deck = create_deck()
-print(deck)
+# Draws card from deck
 def draw_card():
     max_range = len(deck)
     index = random.randrange(max_range)
@@ -37,5 +39,11 @@ def draw_card():
     del deck[index]
     return card
 
-print(draw_card())
-print(deck)
+# needed to creat own seperate deck so that card could be removed from deck when drawn
+deck = create_deck()
+
+# prints deck in 4 x 13 grid
+for i in range(13):
+    for j in range(4):
+        print(draw_card(), end=" ")
+    print()
