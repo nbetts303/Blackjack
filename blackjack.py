@@ -27,5 +27,15 @@ def create_deck():
             full_deck.append(entry)
     return full_deck
 
-print(create_deck())
-print()
+deck = create_deck()
+print(deck)
+def draw_card():
+    max_range = len(deck)
+    index = random.randrange(max_range)
+    suit, pip = deck[index]
+    card = suit + pip
+    del deck[index]
+    return card
+
+print(draw_card())
+print(deck)
