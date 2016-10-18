@@ -39,11 +39,18 @@ def draw_card():
     del deck[index]
     return card
 
-# needed to creat own seperate deck so that card could be removed from deck when drawn
-deck = create_deck()
-
-# prints deck in 4 x 13 grid
-for i in range(13):
-    for j in range(4):
-        print(draw_card(), end=" ")
-    print()
+shoe = int(input("How many decks would you like(1-3)"))
+while shoe != 0:
+    if shoe in range(1, 4):
+        deck = create_deck()
+        # prints deck in 4 x 13 grid
+        for i in range(13):
+            for j in range(4):
+                print(draw_card(), end=" ")
+            print()
+        print()
+        shoe -= 1
+    else:
+        print("Casino rules only allow 3")
+        shoe = int(input("How many decks would you like?"))
+input("Press any key to exit")
